@@ -1,0 +1,100 @@
+[
+  {
+    "slug": "asmaan-sa-bunting",
+    "name": "Asmaan Sa Bunting",
+    "subtitle": "As open and dreamy as your child's future.",
+    "tagline": "Bring a little sky indoors.",
+    "description": "Powder blue handcrafted triangles with a natural ribbon finish. A calm, timeless choice for rooms and celebrations alike.",
+    "price": "INR 999",
+    "badge": "INR 999",
+    "image": "/products/asmaan-sa-bunting.jpg",
+    "alt": "Asmaan Sa handcrafted blue bunting",
+    "points": [
+      "Soft powder-blue bunting flags",
+      "Natural cotton ribbon finish",
+      "Reusable for birthdays and nursery decor"
+    ]
+  },
+  {
+    "slug": "nanhe-kadam-age-cap-combo",
+    "name": "Nanhe Kadam Age Bunting and Cap Combo",
+    "subtitle": "The birthday photo moment every parent dreams of.",
+    "tagline": "Age bunting behind. Cap on. Camera ready.",
+    "description": "A coordinated age bunting and birthday cap combo made for milestone portraits and celebration setups.",
+    "price": "INR 1,199",
+    "badge": "INR 1,199",
+    "image": "/products/nanhe-kadam-age-cap-combo.jpg",
+    "alt": "Nanhe Kadam age bunting and cap combo",
+    "points": [
+      "Includes age bunting and birthday cap",
+      "Coordinated sage and brown palette",
+      "Great for first birthday photos"
+    ]
+  },
+  {
+    "slug": "nanhe-dil-bunting",
+    "name": "Nanhe Dil Bunting",
+    "subtitle": "Tiny hearts for your tiniest love.",
+    "tagline": "Little hearts on every flag, love you can hang.",
+    "description": "Lavender bunting with delicate heart prints and a warm neutral ribbon, made for nursery corners and milestone decor.",
+    "price": "INR 999",
+    "badge": "INR 999",
+    "image": "/products/nanhe-dil-bunting.jpg",
+    "alt": "Nanhe Dil purple heart bunting",
+    "points": [
+      "Heart print lavender fabric",
+      "Soft textured cloth finish",
+      "Photo-ready nursery accent"
+    ]
+  },
+  {
+    "slug": "nanhe-kadam-birthday-bunting",
+    "name": "Nanhe Kadam Birthday Bunting",
+    "subtitle": "Because every tiny step deserves celebration.",
+    "tagline": "The backdrop behind a birthday photo you never stop revisiting.",
+    "description": "A birthday message bunting with customizable text and coordinated tones for milestone celebrations.",
+    "price": "INR 1,499",
+    "badge": "INR 1,499",
+    "image": "/products/nanhe-kadam-birthday-bunting-flatlay.jpg",
+    "secondaryImage": "/products/nanhe-kadam-birthday-bunting-lifestyle.jpg",
+    "alt": "Nanhe Kadam birthday bunting flat lay",
+    "secondaryAlt": "Nanhe Kadam birthday bunting lifestyle setup",
+    "points": [
+      "Custom birthday message option",
+      "Two matching bunting rows",
+      "Ideal for party backdrop photos"
+    ]
+  },
+  {
+    "slug": "phool-si-bunting",
+    "name": "Phool Si Bunting",
+    "subtitle": "For the little one who blooms your whole world.",
+    "tagline": "Like the first flowers of spring: soft, warm, and full of joy.",
+    "description": "Bright pink triangular bunting with a neutral ribbon that adds color and warmth to birthdays and nurseries.",
+    "price": "INR 999",
+    "badge": "INR 999",
+    "image": "/products/phool-si-bunting.jpg",
+    "alt": "Phool Si pink handcrafted bunting",
+    "points": [
+      "Soft pink textile finish",
+      "Natural ribbon for easy hanging",
+      "Works for gifting and decor"
+    ]
+  },
+  {
+    "slug": "nanhe-kadam-birthday-package",
+    "name": "Nanhe Kadam Birthday Package",
+    "subtitle": "A complete memory kit for milestone birthdays.",
+    "tagline": "One coordinated set. One unforgettable day.",
+    "description": "A complete set combining birthday bunting, age bunting, and matching cap in one coordinated package.",
+    "price": "INR 2,499",
+    "badge": "Most Loved Gift",
+    "image": "/products/nanhe-kadam-birthday-package.jpg",
+    "alt": "Nanhe Kadam complete birthday package",
+    "points": [
+      "Birthday bunting plus age bunting plus cap",
+      "Coordinated set for a complete look",
+      "Popular milestone gifting option"
+    ]
+  }
+]
