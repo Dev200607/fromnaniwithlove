@@ -7,8 +7,10 @@
     "description": "Powder blue handcrafted triangles with a natural ribbon finish. A calm, timeless choice for rooms and celebrations alike.",
     "price": "INR 999",
     "badge": "INR 999",
-    "image": "/products/asmaan-sa-bunting.jpg",
+    "image": "/products/asmaan-sa-bunting.jpeg",
+    "secondaryImage": "/products/asmaan-sa-bunting-2.jpeg",
     "alt": "Asmaan Sa handcrafted blue bunting",
+    "secondaryAlt": "Asmaan Sa handcrafted blue bunting - alternate view",
     "points": [
       "Soft powder-blue bunting flags",
       "Natural cotton ribbon finish",
@@ -39,7 +41,7 @@
     "description": "Lavender bunting with delicate heart prints and a warm neutral ribbon, made for nursery corners and milestone decor.",
     "price": "INR 999",
     "badge": "INR 999",
-    "image": "/products/nanhe-dil-bunting.jpg",
+    "image": "/products/nanhe-dil-bunting.jpeg",
     "alt": "Nanhe Dil purple heart bunting",
     "points": [
       "Heart print lavender fabric",
@@ -73,8 +75,10 @@
     "description": "Bright pink triangular bunting with a neutral ribbon that adds color and warmth to birthdays and nurseries.",
     "price": "INR 999",
     "badge": "INR 999",
-    "image": "/products/phool-si-bunting.jpg",
+    "image": "/products/phool-si-bunting.jpeg",
+    "secondaryImage": "/products/phool-si-bunting-2.jpeg",
     "alt": "Phool Si pink handcrafted bunting",
+    "secondaryAlt": "Phool Si pink handcrafted bunting - alternate view",
     "points": [
       "Soft pink textile finish",
       "Natural ribbon for easy hanging",

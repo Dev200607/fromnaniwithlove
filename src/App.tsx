@@ -612,9 +612,9 @@ export default function App() {
   const addToCart = (slug: string) => {
     setCart((current) => {
       const currentQty = current[slug] || 0;
-      if (currentQty >= 6) {
+      if (currentQty >= 4) {
         setCartStatusType("error");
-        setCartStatusMessage("Maximum quantity per product is six. For larger orders, please contact the owner.");
+        setCartStatusMessage("Maximum quantity per product is four. For larger orders, please contact the owner.");
         return current;
       }
       setCartStatusType("success");
@@ -646,9 +646,9 @@ export default function App() {
   const increaseCartItem = (slug: string) => {
     setCart((current) => {
       const currentQty = current[slug] || 0;
-      if (currentQty >= 6) {
+      if (currentQty >= 4) {
         setCartStatusType("error");
-        setCartStatusMessage("Maximum quantity per product is six. For larger orders, please contact the owner.");
+        setCartStatusMessage("Maximum quantity per product is four. For larger orders, please contact the owner.");
         return current;
       }
       setCartStatusType("success");
