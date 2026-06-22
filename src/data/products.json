@@ -100,5 +100,23 @@
       "Coordinated set for a complete look",
       "Popular milestone gifting option"
     ]
+  },
+   {
+    "slug": "kshitij-sa-bunting",
+    "name": "Kshitij Sa Bunting",
+    "subtitle": "Where earthy browns meet soft sky blues, this bunting captures the gentle horizon in calm, natural tones.",
+    "tagline": "A minimal, soothing piece that feels like a quiet meeting of dharti and asmaan.",
+    "description": "A simple fabric bunting with alternating earthy and neutral tones, designed to bring a calm, understated charm to any space.",
+    "price": "INR 999",
+    "badge": "INR 999",
+    "image": "/products/kshitij sa -1.jpeg",
+    "secondaryImage": "/products/kshitij sa 2.jpeg",
+    "alt": "Kshitij sa handcrafted bunting",
+    "secondaryAlt": "Kshitij sa handcrafted bunting - alternate view",
+    "points": [
+      "Earthy grey and brown tones",
+      "Natural ribbon for easy hanging",
+      "Perfect for nurseries, gifting, and decor"
+    ]
   }
 ]
