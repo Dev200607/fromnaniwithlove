@@ -118,5 +118,24 @@
       "Natural ribbon for easy hanging",
       "Perfect for nurseries, gifting, and decor"
     ]
+  },
+
+  {
+    "slug": "Nani Ke Nanhe",
+    "name": "Nani Ke Nanhe - Bunting",
+    "subtitle": "A special piece lovingly crafted for Nani’s little ones.",
+    "tagline": "Where every detail makes childhood magical.",
+    "description": "Our personalised Nani Ke Nanhe buntings are handmade with love to make your little one’s space extra special. A beautiful keepsake for nurseries, birthdays, and gifting moments.",
+    "price": "INR 1,599",
+    "badge": "INR 1,599",
+    "image": "/products/Nani-ke-nanhe-1.jpeg",
+    "secondaryImage": "/products/Nani-ke-nanhe-2.jpeg",
+    "alt": "Nanhe boy bunting",
+    "secondaryAlt": "Nanhe girl bunting",
+    "points": [
+      "Customized with your little one's name",
+      "Handmade with love & care",
+      "Perfect for nursery décor, birthdays & baby gifting "
+    ]
   }
 ]
