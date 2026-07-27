@@ -11,21 +11,18 @@ type Product = {
   description: string;
   price: string;
   badge: string;
+  inStock: boolean;
   image: string;
   alt: string;
   secondaryImage?: string;
   secondaryAlt?: string;
   points: string[];
-  isOutOfStock?: boolean;
 };
 
 const instagramUrl =
   "https://www.instagram.com/fromnaniwithlove?igsh=cHMxbGRjYmk1cA==";
 
-const products: Product[] = productsData.map((product) => ({
-  ...product,
-  isOutOfStock: true,
-}));
+const products: Product[] = productsData;
 
 const parseInrPrice = (price: string) => Number(price.replace(/[^0-9]/g, "")) || 0;
 
@@ -85,9 +82,16 @@ function ProductCardSlideshow({ product }: { product: Product }) {
           {activeIndex + 1}/{imageSet.length}
         </div>
       ) : null}
-      <span className="absolute top-4 left-4 rounded-full bg-[#c15c4e] px-4 py-1 text-xs font-semibold tracking-wide text-white">
-        {product.badge}
-      </span>
+      <div className="absolute top-4 left-4 flex flex-wrap gap-2">
+        <span className="rounded-full bg-[#c15c4e] px-4 py-1 text-xs font-semibold tracking-wide text-white">
+          {product.badge}
+        </span>
+        {!product.inStock ? (
+          <span className="rounded-full bg-[#5c4635] px-4 py-1 text-xs font-semibold tracking-wide text-white">
+            Out of stock
+          </span>
+        ) : null}
+      </div>
     </div>
   );
 }
@@ -218,6 +222,9 @@ function HomePage({
         <p className="mx-auto mt-4 max-w-3xl text-center leading-8 text-[#5c4635]">
           Click any product to open its full page with details and ordering options.
         </p>
+        <p className="mx-auto mt-3 text-center text-sm font-semibold uppercase tracking-[0.16em] text-[#c15c4e]">
+          All products are currently out of stock.
+        </p>
         {cartStatusMessage ? (
           <p className={`mt-3 text-center text-xs ${cartStatusType === "error" ? "text-red-600" : "text-emerald-700"}`}>
             {cartStatusMessage}
@@ -251,15 +258,19 @@ function HomePage({
                   <div className="flex w-full gap-2 sm:w-auto">
                     <button
                       type="button"
-                      disabled={product.isOutOfStock}
-                      className={`inline-flex w-full items-center justify-center rounded-full border px-4 py-2.5 text-xs font-semibold sm:w-auto ${product.isOutOfStock ? "cursor-not-allowed border-[#d8c4ad] bg-[#f4eee8] text-[#8b7666]" : "border-[#3f2a1f] hover:bg-[#3f2a1f] hover:text-white"}`}
+                      disabled={!product.inStock}
+                      className={`inline-flex w-full items-center justify-center rounded-full border px-4 py-2.5 text-xs font-semibold sm:w-auto ${
+                        product.inStock
+                          ? "border-[#3f2a1f] hover:bg-[#3f2a1f] hover:text-white"
+                          : "cursor-not-allowed border-[#d8c4ad] bg-[#f7efe7] text-[#8d7566]"
+                      }`}
                       onClick={(event) => {
                         event.preventDefault();
                         event.stopPropagation();
                         onAddToCart(product.slug);
                       }}
                     >
-                      {product.isOutOfStock ? "Out of stock" : "Add to Cart"}
+                      {product.inStock ? "Add to Cart" : "Out of stock"}
                     </button>
                   </div>
                 </div>
@@ -462,9 +473,16 @@ function ProductPage({ cartCount }: { cartCount: number }) {
             ) : null}
           </div>
           <div className="space-y-5">
-            <p className="inline-block rounded-full bg-[#c15c4e] px-4 py-1 text-xs font-semibold tracking-wide text-white">
-              {product.badge}
-            </p>
+            <div className="flex flex-wrap gap-2">
+              <p className="inline-block rounded-full bg-[#c15c4e] px-4 py-1 text-xs font-semibold tracking-wide text-white">
+                {product.badge}
+              </p>
+              {!product.inStock ? (
+                <p className="inline-block rounded-full bg-[#5c4635] px-4 py-1 text-xs font-semibold tracking-wide text-white">
+                  Out of stock
+                </p>
+              ) : null}
+            </div>
             <h1 className="font-serif text-3xl leading-tight sm:text-4xl lg:text-5xl">{product.name}</h1>
             <p className="text-lg italic text-[#c15c4e]">{product.subtitle}</p>
             <p className="border-l-2 border-[#c8a96e] bg-[#f0e4d3] px-4 py-3 italic text-[#5c4635]">{product.tagline}</p>
@@ -478,14 +496,14 @@ function ProductPage({ cartCount }: { cartCount: number }) {
             <div className="pt-2">
               <button
                 type="button"
-                disabled={isOutOfStock}
-                className={`rounded-full px-6 py-3 font-semibold ${isOutOfStock ? "cursor-not-allowed bg-[#d8c4ad] text-[#6f5a46]" : "bg-[#c15c4e] text-white"}`}
+                disabled={!product.inStock}
+                className={`rounded-full px-6 py-3 font-semibold text-white ${
+                  product.inStock ? "bg-[#c15c4e]" : "cursor-not-allowed bg-[#a78f79]"
+                }`}
+                onClick={() => window.open(instagramUrl, "_blank", "noopener,noreferrer")}
               >
-                {isOutOfStock ? "Out of stock" : "Order on Instagram"}
+                {product.inStock ? "Order on Instagram" : "Currently out of stock"}
               </button>
-              {isOutOfStock ? (
-                <p className="mt-3 text-sm text-[#c15c4e]">This product is currently unavailable for orders.</p>
-              ) : null}
             </div>
           </div>
         </div>
@@ -618,9 +636,9 @@ export default function App() {
 
   const addToCart = (slug: string) => {
     const product = products.find((item) => item.slug === slug);
-    if (product?.isOutOfStock ?? true) {
+    if (product && !product.inStock) {
       setCartStatusType("error");
-      setCartStatusMessage("This product is currently out of stock.");
+      setCartStatusMessage(`${product.name} is currently out of stock.`);
       return;
     }
 
@@ -659,9 +677,9 @@ export default function App() {
 
   const increaseCartItem = (slug: string) => {
     const product = products.find((item) => item.slug === slug);
-    if (product?.isOutOfStock ?? true) {
+    if (product && !product.inStock) {
       setCartStatusType("error");
-      setCartStatusMessage("This product is currently out of stock.");
+      setCartStatusMessage(`${product.name} is currently out of stock.`);
       return;
     }
 
