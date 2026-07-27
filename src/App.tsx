@@ -16,12 +16,16 @@ type Product = {
   secondaryImage?: string;
   secondaryAlt?: string;
   points: string[];
+  isOutOfStock?: boolean;
 };
 
 const instagramUrl =
   "https://www.instagram.com/fromnaniwithlove?igsh=cHMxbGRjYmk1cA==";
 
-const products: Product[] = productsData;
+const products: Product[] = productsData.map((product) => ({
+  ...product,
+  isOutOfStock: true,
+}));
 
 const parseInrPrice = (price: string) => Number(price.replace(/[^0-9]/g, "")) || 0;
 
@@ -245,17 +249,18 @@ function HomePage({
                 <div className="flex flex-col items-start gap-3 border-t border-[#eee2d5] pt-5 sm:flex-row sm:items-center sm:justify-between">
                   <span className="font-serif text-2xl sm:text-3xl">{product.price}</span>
                   <div className="flex w-full gap-2 sm:w-auto">
-                    <a
-                      href="#"
-                      className="inline-flex w-full items-center justify-center rounded-full border border-[#3f2a1f] px-4 py-2.5 text-xs font-semibold hover:bg-[#3f2a1f] hover:text-white sm:w-auto"
+                    <button
+                      type="button"
+                      disabled={product.isOutOfStock}
+                      className={`inline-flex w-full items-center justify-center rounded-full border px-4 py-2.5 text-xs font-semibold sm:w-auto ${product.isOutOfStock ? "cursor-not-allowed border-[#d8c4ad] bg-[#f4eee8] text-[#8b7666]" : "border-[#3f2a1f] hover:bg-[#3f2a1f] hover:text-white"}`}
                       onClick={(event) => {
                         event.preventDefault();
                         event.stopPropagation();
                         onAddToCart(product.slug);
                       }}
                     >
-                      Add to Cart
-                    </a>
+                      {product.isOutOfStock ? "Out of stock" : "Add to Cart"}
+                    </button>
                   </div>
                 </div>
               </div>
@@ -471,14 +476,16 @@ function ProductPage({ cartCount }: { cartCount: number }) {
             </ul>
             <p className="font-serif text-3xl sm:text-4xl">{product.price}</p>
             <div className="pt-2">
-              <a
-                href={instagramUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-block rounded-full bg-[#c15c4e] px-6 py-3 font-semibold text-white"
+              <button
+                type="button"
+                disabled={isOutOfStock}
+                className={`rounded-full px-6 py-3 font-semibold ${isOutOfStock ? "cursor-not-allowed bg-[#d8c4ad] text-[#6f5a46]" : "bg-[#c15c4e] text-white"}`}
               >
-                Order on Instagram
-              </a>
+                {isOutOfStock ? "Out of stock" : "Order on Instagram"}
+              </button>
+              {isOutOfStock ? (
+                <p className="mt-3 text-sm text-[#c15c4e]">This product is currently unavailable for orders.</p>
+              ) : null}
             </div>
           </div>
         </div>
@@ -610,6 +617,13 @@ export default function App() {
   const [cartStatusType, setCartStatusType] = useState<"success" | "error" | "">("");
 
   const addToCart = (slug: string) => {
+    const product = products.find((item) => item.slug === slug);
+    if (product?.isOutOfStock ?? true) {
+      setCartStatusType("error");
+      setCartStatusMessage("This product is currently out of stock.");
+      return;
+    }
+
     setCart((current) => {
       const currentQty = current[slug] || 0;
       if (currentQty >= 4) {
@@ -644,6 +658,13 @@ export default function App() {
   };
 
   const increaseCartItem = (slug: string) => {
+    const product = products.find((item) => item.slug === slug);
+    if (product?.isOutOfStock ?? true) {
+      setCartStatusType("error");
+      setCartStatusMessage("This product is currently out of stock.");
+      return;
+    }
+
     setCart((current) => {
       const currentQty = current[slug] || 0;
       if (currentQty >= 4) {
