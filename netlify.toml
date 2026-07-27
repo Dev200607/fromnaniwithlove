@@ -6,3 +6,9 @@
   from = "/*"
   to = "/index.html"
   status = 200
+
+[[redirects]]
+  from = "https://fromnaniwithlove.store/*"
+  to = "https://www.fromnaniwithlove.store/:splat"
+  status = 301
+  force = true
